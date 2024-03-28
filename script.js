@@ -11,9 +11,10 @@ function addTask() {
     localStorage.setItem("tasks", JSON.stringify(tasks));
     input.value = "";
     loadTasks();
-    console
+    console;
   }
 }
+
 // Need to show and then delete
-//how?? 
-//At least I think i mange to store it 
+//how??
+//At least I think i mange to store it
