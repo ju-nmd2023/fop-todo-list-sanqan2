@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function addTask() {
-  var input = document.getElementById("taskInput");
+  var input = document.getElementById("taskInput"); //write task in taskInput and store it in tasks also put in a list
   var task = input.value.trim();
   if (task !== "") {
     var tasks = JSON.parse(localStorage.getItem("tasks")) || [];
@@ -14,7 +14,20 @@ function addTask() {
     console;
   }
 }
+function loadTasks() {
+  var taskList = document.getElementById("taskList");
+  taskList.innerHTML = "";
+  var tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  tasks.forEach(function (task, index) {
+    var li = document.createElement("li");
+    li.className = "todo-item";
+  });
+}
+//Check
+var checkbox = document.createElement("input");
+checkbox.type = "checkbox";
+checkbox.checked = task.done;
 
-// Need to show and then delete
-//how??
-//At least I think i mange to store it
+//Delete
+var deleteBtn = document.createElement("span");
+deleteBtn.className = "delete-btn";
