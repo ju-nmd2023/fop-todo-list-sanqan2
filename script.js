@@ -21,13 +21,31 @@ function loadTasks() {
   tasks.forEach(function (task, index) {
     var li = document.createElement("li");
     li.className = "todo-item";
+
+    //Check
+    var checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.checked = task.done;
+    checkbox.addEventListener("change", function () {
+      tasks[index].done = this.checked;
+      localStorage.setItem("tasks", JSON.stringify(tasks));
+    });
+    var label = document.createElement("label");
+    label.textContent = task.name;
+
+    li.appendChild(checkbox);
+    li.appendChild(label);
+
+    //Delete
+    var deleteBtn = document.createElement("span");
+    deleteBtn.className = "delete-btn";
+    deleteBtn.innerHTML = "&times;";
+    deleteBtn.addEventListener("click", function () {
+      tasks.splice(index, 1);
+      localStorage.setItem("tasks", JSON.stringify(tasks));
+      loadTasks();
+    });
+    li.appendChild(deleteBtn);
+    taskList.appendChild(li);
   });
 }
-//Check
-var checkbox = document.createElement("input");
-checkbox.type = "checkbox";
-checkbox.checked = task.done;
-
-//Delete
-var deleteBtn = document.createElement("span");
-deleteBtn.className = "delete-btn";
