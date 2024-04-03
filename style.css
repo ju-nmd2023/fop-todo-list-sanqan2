@@ -8,16 +8,20 @@ body {
   margin: 0 auto;
   padding: 20px;
   border: 4px solid black;
-  border-radius: 5px;
+
   background-color: aquamarine;
 }
 
 .inputdiv {
   display: flex;
+  justify-content: space-between;
 }
 
 #taskInput {
   flex: 1;
+  outline: none;
+  border-radius: 6px;
+  height: 20px;
 }
 .todo-item {
   display: flex;
@@ -31,4 +35,15 @@ body {
   background-color: blue;
   color: aquamarine;
   border: 0 px black;
+  outline: none;
+  border-radius: 6px;
+}
+
+.delete-btn {
+  margin-left: auto;
+  cursor: pointer;
+  font-size: 20px;
+  background-color: brown;
+  width: 30px;
+  border-radius: 10px;
 }

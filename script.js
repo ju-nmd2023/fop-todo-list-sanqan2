@@ -37,11 +37,13 @@ function loadTasks() {
     li.appendChild(label);
 
     //Delete
+    //<--- The folowing 5 lines of code was used from chat gpt https://chat.openai.com/ --->
     var deleteBtn = document.createElement("span");
     deleteBtn.className = "delete-btn";
     deleteBtn.innerHTML = "&times;";
     deleteBtn.addEventListener("click", function () {
       tasks.splice(index, 1);
+
       localStorage.setItem("tasks", JSON.stringify(tasks));
       loadTasks();
     });
