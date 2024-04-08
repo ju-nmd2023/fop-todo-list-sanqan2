@@ -3,10 +3,10 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function addTask() {
-  var input = document.getElementById("taskInput"); //write task in taskInput and store it in tasks also put in a list
-  var task = input.value.trim();
+  let input = document.getElementById("taskInput"); //write task in taskInput and store it in tasks also put in a list
+  let task = input.value.trim();
   if (task !== "") {
-    var tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
     tasks.push({ name: task, done: false });
     localStorage.setItem("tasks", JSON.stringify(tasks));
     input.value = "";
@@ -15,22 +15,22 @@ function addTask() {
   }
 }
 function loadTasks() {
-  var taskList = document.getElementById("taskList");
+  let taskList = document.getElementById("taskList");
   taskList.innerHTML = "";
-  var tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
   tasks.forEach(function (task, index) {
-    var li = document.createElement("li");
+    let li = document.createElement("li");
     li.className = "todo-item";
 
     //Check
-    var checkbox = document.createElement("input");
+    let checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.checked = task.done;
     checkbox.addEventListener("change", function () {
       tasks[index].done = this.checked;
       localStorage.setItem("tasks", JSON.stringify(tasks));
     });
-    var label = document.createElement("label");
+    let label = document.createElement("label");
     label.textContent = task.name;
 
     li.appendChild(checkbox);
@@ -38,7 +38,7 @@ function loadTasks() {
 
     //Delete
     //<--- The folowing 5 lines of code was used from chat gpt https://chat.openai.com/ --->
-    var deleteBtn = document.createElement("span");
+    let deleteBtn = document.createElement("span");
     deleteBtn.className = "delete-btn";
     deleteBtn.innerHTML = "&times;";
     deleteBtn.addEventListener("click", function () {
