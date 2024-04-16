@@ -26,7 +26,6 @@ body {
 .todo-item {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
   margin-top: 2vw;
 }
 .todo-item input[type="checkbox"] {
@@ -51,6 +50,7 @@ body {
   width: 42px;
   height: 42px;
   border-radius: 5px;
+  text-align: center;
 }
 label {
   font-family: Arial, sans-serif;
