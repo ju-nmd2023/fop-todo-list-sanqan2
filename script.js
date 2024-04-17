@@ -1,3 +1,4 @@
+//Load the task directly when the document is loaded
 document.addEventListener("DOMContentLoaded", function () {
   loadTasks();
 });
@@ -5,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function addTask() {
   let input = document.getElementById("taskInput"); //write task in taskInput and store it in tasks also put in a list
   let task = input.value.trim();
-  if (task !== "") {
+  if (task !== "") {//Check if the input is emty
     let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
     tasks.push({ name: task, done: false });
     localStorage.setItem("tasks", JSON.stringify(tasks));
