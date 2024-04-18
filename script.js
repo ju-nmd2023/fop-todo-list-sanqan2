@@ -4,10 +4,13 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function addTask() {
-  let input = document.getElementById("taskInput"); //write task in taskInput and store it in tasks also put in a list
+  let input = document.getElementById("taskInput"); //write task in taskInput
   let task = input.value.trim();
-  if (task !== "") {//Check if the input is emty
+  if (task !== "") {
+    //Check if the input is emty
+    //Ask LocalStorage what already exists
     let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    //Add the new task
     tasks.push({ name: task, done: false });
     localStorage.setItem("tasks", JSON.stringify(tasks));
     input.value = "";
@@ -16,7 +19,9 @@ function addTask() {
   }
 }
 function loadTasks() {
+  //Here I connect to the html list by ID
   let taskList = document.getElementById("taskList");
+  //Get from the list in the html here
   taskList.innerHTML = "";
   let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
   tasks.forEach(function (task, index) {
@@ -27,6 +32,7 @@ function loadTasks() {
     let checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.checked = task.done;
+    //The event of a click
     checkbox.addEventListener("change", function () {
       tasks[index].done = this.checked;
       localStorage.setItem("tasks", JSON.stringify(tasks));
@@ -45,6 +51,7 @@ function loadTasks() {
     deleteBtn.addEventListener("click", function () {
       tasks.splice(index, 1);
 
+      //Load the new arrey into localstoarge after the delete
       localStorage.setItem("tasks", JSON.stringify(tasks));
       loadTasks();
     });
