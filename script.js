@@ -44,7 +44,7 @@ function loadTasks() {
     li.appendChild(label);
 
     //Delete
-    //<--- The folowing 5 lines of code was used from chat gpt https://chat.openai.com/ --->
+    //<--- The folowing 5 lines of code was used from chat gpt https://chat.openai.com/share/1ec92950-a263-4a72-823d-2a0aba6889c9 --->
     let deleteBtn = document.createElement("span");
     deleteBtn.className = "delete-btn";
     deleteBtn.innerHTML = "&times;";
